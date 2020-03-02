@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RestaurantListViewController.swift
 //  FoodNearby
 //
 //  Created by Rahul Dange on 02/03/20.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RestaurantListViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 	}
-
-
 }
 

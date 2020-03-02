@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		5F1C248C240D128F00678725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C248B240D128F00678725 /* AppDelegate.swift */; };
 		5F1C248E240D128F00678725 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C248D240D128F00678725 /* SceneDelegate.swift */; };
-		5F1C2490240D128F00678725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C248F240D128F00678725 /* ViewController.swift */; };
+		5F1C2490240D128F00678725 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C248F240D128F00678725 /* RestaurantListViewController.swift */; };
 		5F1C2493240D128F00678725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C2491240D128F00678725 /* Main.storyboard */; };
 		5F1C2495240D129200678725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C2494240D129200678725 /* Assets.xcassets */; };
 		5F1C2498240D129200678725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C2496240D129200678725 /* LaunchScreen.storyboard */; };
 		5F1C24A3240D129200678725 /* FoodNearbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24A2240D129200678725 /* FoodNearbyTests.swift */; };
 		5F1C24AE240D129200678725 /* FoodNearbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24AD240D129200678725 /* FoodNearbyUITests.swift */; };
+		5F1C24BD240D18CC00678725 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24BC240D18CC00678725 /* RestaurantModel.swift */; };
+		5F1C24BF240D19C700678725 /* RestaurantListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C24BE240D19C700678725 /* RestaurantListResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 		5F1C2488240D128F00678725 /* FoodNearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodNearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1C248B240D128F00678725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F1C248D240D128F00678725 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5F1C248F240D128F00678725 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F1C248F240D128F00678725 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		5F1C2492240D128F00678725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F1C2494240D129200678725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F1C2497240D129200678725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		5F1C24A9240D129200678725 /* FoodNearbyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodNearbyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1C24AD240D129200678725 /* FoodNearbyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNearbyUITests.swift; sourceTree = "<group>"; };
 		5F1C24AF240D129200678725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F1C24BC240D18CC00678725 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		5F1C24BE240D19C700678725 /* RestaurantListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RestaurantListResponse.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,9 @@
 		5F1C248A240D128F00678725 /* FoodNearby */ = {
 			isa = PBXGroup;
 			children = (
+				5F1C24BB240D132800678725 /* RestaurantListing */,
 				5F1C248B240D128F00678725 /* AppDelegate.swift */,
 				5F1C248D240D128F00678725 /* SceneDelegate.swift */,
-				5F1C248F240D128F00678725 /* ViewController.swift */,
 				5F1C2491240D128F00678725 /* Main.storyboard */,
 				5F1C2494240D129200678725 /* Assets.xcassets */,
 				5F1C2496240D129200678725 /* LaunchScreen.storyboard */,
@@ -126,6 +130,16 @@
 				5F1C24AF240D129200678725 /* Info.plist */,
 			);
 			path = FoodNearbyUITests;
+			sourceTree = "<group>";
+		};
+		5F1C24BB240D132800678725 /* RestaurantListing */ = {
+			isa = PBXGroup;
+			children = (
+				5F1C248F240D128F00678725 /* RestaurantListViewController.swift */,
+				5F1C24BC240D18CC00678725 /* RestaurantModel.swift */,
+				5F1C24BE240D19C700678725 /* RestaurantListResponse.json */,
+			);
+			path = RestaurantListing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F1C24BF240D19C700678725 /* RestaurantListResponse.json in Resources */,
 				5F1C2498240D129200678725 /* LaunchScreen.storyboard in Resources */,
 				5F1C2495240D129200678725 /* Assets.xcassets in Resources */,
 				5F1C2493240D128F00678725 /* Main.storyboard in Resources */,
@@ -259,8 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1C2490240D128F00678725 /* ViewController.swift in Sources */,
+				5F1C2490240D128F00678725 /* RestaurantListViewController.swift in Sources */,
 				5F1C248C240D128F00678725 /* AppDelegate.swift in Sources */,
+				5F1C24BD240D18CC00678725 /* RestaurantModel.swift in Sources */,
 				5F1C248E240D128F00678725 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
