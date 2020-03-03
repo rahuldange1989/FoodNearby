@@ -21,4 +21,20 @@ class RestaurantViewModel {
 	}
 	
 	// MARK: - Internal Methods -
+	func parseResponseJson() {
+		if let path = Bundle.main.path(forResource: "RestaurantListResponse", ofType: "json") {
+			do {
+				let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+				let decoder = JSONDecoder()
+				let restListResponse = try decoder.decode(RestaurantListResponse.self, from: data)
+				
+				// -- update restaurant list
+				if let updateDelegate = self.delegate {
+					updateDelegate.updateRestaurantList(list: restListResponse.restaurants)
+				}
+			} catch {
+				print(error.localizedDescription)
+			}
+		}
+	}
 }

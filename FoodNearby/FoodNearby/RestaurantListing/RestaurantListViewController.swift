@@ -25,6 +25,9 @@ class RestaurantListViewController: UIViewController {
 		
 		// -- to hide extra lines
 		restaurantListTableView.tableFooterView = .init()
+		
+		// -- parse json and load tableview
+		restaurantViewModel.parseResponseJson()
 	}
 
 	// MARK: - Internal Methods -
@@ -44,5 +47,26 @@ class RestaurantListViewController: UIViewController {
 extension RestaurantListViewController : RestaurantListUpdateDelegate {
 	func updateRestaurantList(list: [Restaurant]) {
 		self.restaurantList = list
+		DispatchQueue.main.async {
+			self.restaurantListTableView.reloadData()
+		}
+	}
+}
+
+// MARK: - UITableView Data Source methods -
+extension RestaurantListViewController : UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return restaurantList.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		var restaurantCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as? RestaurantCell
+		
+		if restaurantCell == nil {
+			restaurantCell = UITableViewCell.init(style: .default, reuseIdentifier: "RestaurantCell") as? RestaurantCell
+		}
+		
+		restaurantCell?.setupCell(restaurant: restaurantList[indexPath.row])
+		return restaurantCell!
 	}
 }

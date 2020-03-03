@@ -19,6 +19,7 @@
 		5F1C24BF240D19C700678725 /* RestaurantListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C24BE240D19C700678725 /* RestaurantListResponse.json */; };
 		5F1C24C1240D1A5500678725 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24C0240D1A5500678725 /* RestaurantViewModel.swift */; };
 		5FC6CBEB240EC71F00592AE5 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6CBEA240EC71F00592AE5 /* RestaurantCell.swift */; };
+		5FDCEC87240ED68E007F6C94 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCEC86240ED68E007F6C94 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5F1C24BE240D19C700678725 /* RestaurantListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RestaurantListResponse.json; sourceTree = "<group>"; };
 		5F1C24C0240D1A5500678725 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		5FC6CBEA240EC71F00592AE5 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		5FDCEC86240ED68E007F6C94 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		5F1C248A240D128F00678725 /* FoodNearby */ = {
 			isa = PBXGroup;
 			children = (
+				5FDCEC85240ED66D007F6C94 /* Utility */,
 				5F1C24BB240D132800678725 /* RestaurantListing */,
 				5F1C248B240D128F00678725 /* AppDelegate.swift */,
 				5F1C248D240D128F00678725 /* SceneDelegate.swift */,
@@ -146,6 +149,14 @@
 				5F1C24BE240D19C700678725 /* RestaurantListResponse.json */,
 			);
 			path = RestaurantListing;
+			sourceTree = "<group>";
+		};
+		5FDCEC85240ED66D007F6C94 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5FDCEC86240ED68E007F6C94 /* RatingView.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				5F1C248C240D128F00678725 /* AppDelegate.swift in Sources */,
 				5F1C24C1240D1A5500678725 /* RestaurantViewModel.swift in Sources */,
 				5F1C24BD240D18CC00678725 /* RestaurantModel.swift in Sources */,
+				5FDCEC87240ED68E007F6C94 /* RatingView.swift in Sources */,
 				5F1C248E240D128F00678725 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
