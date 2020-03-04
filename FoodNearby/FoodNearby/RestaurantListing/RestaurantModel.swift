@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 // MARK: - Welcome
 struct RestaurantListResponse: Codable {
@@ -38,6 +38,19 @@ enum Status: String, Codable {
     case closed = "closed"
     case orderAhead = "order ahead"
     case statusOpen = "open"
+	
+	func getStatusColor() -> UIColor {
+		switch self {
+			case .closed:
+				return UIColor.systemRed
+			
+			case .orderAhead:
+				return UIColor.systemOrange
+			
+			case .statusOpen:
+				return UIColor.systemGreen
+		}
+	}
 }
 
 enum SortOptions: String {

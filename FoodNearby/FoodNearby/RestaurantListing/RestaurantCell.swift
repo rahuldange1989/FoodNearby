@@ -58,15 +58,6 @@ class RestaurantCell: UITableViewCell {
 	
 		// -- handle status and status label color
 		self.statusLabel.text = restaurant.status.rawValue.capitalized
-		switch restaurant.status {
-			case .closed:
-				self.statusLabel.textColor = UIColor.systemRed
-			
-			case .orderAhead:
-				self.statusLabel.textColor = UIColor.systemOrange
-			
-			case .statusOpen:
-				self.statusLabel.textColor = UIColor.systemGreen
-		}
+		self.statusLabel.textColor = restaurant.status.getStatusColor()
 	}
 }

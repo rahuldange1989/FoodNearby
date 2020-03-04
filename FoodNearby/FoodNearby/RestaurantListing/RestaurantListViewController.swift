@@ -15,22 +15,48 @@ class RestaurantListViewController: UIViewController {
 	
 	// -- internal variables
 	let restaurantViewModel = RestaurantViewModel()
+	let searchController = UISearchController(searchResultsController: nil) // -- for filtering restaurants by name
 	var restaurantList: [Restaurant] = []
+	var filteredList: [Restaurant] = []
+	var isSearchBarEmpty: Bool {
+		return searchController.searchBar.text?.isEmpty ?? true
+	}
+	var isFiltering: Bool {
+	  return searchController.isActive && !isSearchBarEmpty
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		
 		restaurantViewModel.delegate = self
+		
+		// -- initialize searchController
+		self.initializeSearchController()
 		
 		// -- to hide extra lines
 		restaurantListTableView.tableFooterView = .init()
+		restaurantListTableView.tableHeaderView = searchController.searchBar
 		
 		// -- parse json and load tableview
 		restaurantViewModel.parseResponseJson()
 	}
 
 	// MARK: - Internal Methods -
+	func initializeSearchController() {
+		searchController.searchResultsUpdater = self
+		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.searchBar.placeholder = "Search restaurants"
+		definesPresentationContext = true
+	}
+	
+	func filterContentForSearchText(_ searchText: String) {
+		filteredList = restaurantList.filter { (restaurant: Restaurant) -> Bool in
+			return restaurant.name.lowercased().contains(searchText.lowercased())
+		}
+		// -- update search results
+		self.restaurantListTableView.reloadData()
+	}
+	
 	func createSortActions(with actionArray: [SortOptions]) -> [UIAlertAction] {
 		var alertActions: [UIAlertAction] = []
 		for option in actionArray {
@@ -74,6 +100,9 @@ extension RestaurantListViewController : RestaurantListUpdateDelegate {
 // MARK: - UITableView Data Source methods -
 extension RestaurantListViewController : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if isFiltering {
+			return filteredList.count
+		}
 		return restaurantList.count
 	}
 	
@@ -84,7 +113,20 @@ extension RestaurantListViewController : UITableViewDataSource {
 			restaurantCell = UITableViewCell.init(style: .default, reuseIdentifier: "RestaurantCell") as? RestaurantCell
 		}
 		
-		restaurantCell?.setupCell(restaurant: restaurantList[indexPath.row])
+		if isFiltering {
+			restaurantCell?.setupCell(restaurant: filteredList[indexPath.row])
+		} else {
+			restaurantCell?.setupCell(restaurant: restaurantList[indexPath.row])
+		}
+		
 		return restaurantCell!
+	}
+}
+
+// MARK: - UISearchResultUpdating methods for search controller-
+extension RestaurantListViewController : UISearchResultsUpdating {
+	func updateSearchResults(for searchController: UISearchController) {
+		let searchBar = searchController.searchBar
+		self.filterContentForSearchText(searchBar.text!)
 	}
 }
