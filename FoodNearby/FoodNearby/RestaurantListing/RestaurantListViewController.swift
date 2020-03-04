@@ -85,6 +85,20 @@ class RestaurantListViewController: UIViewController {
 		// -- present action sheet
 		self.present(sortOptionsSheet, animated: true, completion: nil)
 	}
+	
+	@objc func handleFavouriteBtnClickEvent(btn: UIButton) {
+		var restaurant: Restaurant
+		if isFiltering {
+			restaurant = self.filteredList[btn.tag]
+		} else {
+			restaurant = self.restaurantList[btn.tag]
+		}
+		if (restaurant.isFavourite ?? false) {
+			self.restaurantViewModel.markRestaurantAsNonFavourite(restaurant: restaurant)
+		} else {
+			self.restaurantViewModel.markRestaurantAsFavourite(restaurant: restaurant)
+		}
+	}
 }
 
 // MARK: - RestaurantListUpdateDelegate methods -
@@ -118,6 +132,10 @@ extension RestaurantListViewController : UITableViewDataSource {
 		} else {
 			restaurantCell?.setupCell(restaurant: restaurantList[indexPath.row])
 		}
+		
+		// -- enable favourite restaurant btn
+		restaurantCell?.favouriteBtn.tag = indexPath.row
+		restaurantCell?.favouriteBtn.addTarget(self, action: #selector(self.handleFavouriteBtnClickEvent(btn:)), for: .touchUpInside)
 		
 		return restaurantCell!
 	}

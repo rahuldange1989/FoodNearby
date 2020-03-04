@@ -75,15 +75,39 @@ class RestaurantViewModel {
 	func markRestaurantAsFavourite(restaurant: Restaurant) {
 		// -- add to favourite list
 		self.favRestaurantList.append(restaurant)
-		// -- remove to non-favourite list
+		// -- remove from non-favourite list
 		if let index = self.nonFavRestList.firstIndex(where: { $0 == restaurant }) {
 			self.nonFavRestList.remove(at: index)
 		}
+		// -- mark restarant as favourite
+		restaurant.isFavourite = true
 		// -- save Restaurant name to UserDefaults
 		var favArray = UserDefaults.standard.value(forKey: "favouriteRestaurants") as? [String] ?? []
 		favArray.append(restaurant.name)
 		UserDefaults.standard.set(favArray, forKey: "favouriteRestaurants")
 		UserDefaults.standard.synchronize()
+		// -- update restaurant list
+		self.sortRestaurants(with: "Best match")
+	}
+	
+	func markRestaurantAsNonFavourite(restaurant: Restaurant) {
+		// -- add to non-favourite list
+		self.nonFavRestList.append(restaurant)
+		// -- remove from favourite list
+		if let index = self.favRestaurantList.firstIndex(where: { $0 == restaurant }) {
+			self.favRestaurantList.remove(at: index)
+		}
+		// -- mark restarant as non favourite
+		restaurant.isFavourite = false
+		// -- remove Restaurant name from UserDefaults
+		var favArray = UserDefaults.standard.value(forKey: "favouriteRestaurants") as? [String] ?? []
+		if let index = favArray.firstIndex(where: { $0 == restaurant.name }) {
+			favArray.remove(at: index)
+		}
+		UserDefaults.standard.set(favArray, forKey: "favouriteRestaurants")
+		UserDefaults.standard.synchronize()
+		// -- update restaurant list
+		self.sortRestaurants(with: "Best match")
 	}
 	
 	func parseResponseJson() {
