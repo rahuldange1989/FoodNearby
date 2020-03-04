@@ -15,10 +15,15 @@ struct RestaurantListResponse: Codable {
 }
 
 // MARK: - Restaurant
-struct Restaurant: Codable {
-    let name: String
+class Restaurant: Codable, Equatable {
+	let name: String
     let status: Status
     let sortingValues: SortingValues
+	var isFavourite: Bool?
+	
+	static func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
+		return lhs.name == rhs.name
+	}
 }
 
 // MARK: - SortingValues
@@ -33,4 +38,19 @@ enum Status: String, Codable {
     case closed = "closed"
     case orderAhead = "order ahead"
     case statusOpen = "open"
+}
+
+enum SortOptions: String {
+	case bestMatch = "Best match"
+	case newest = "Newest"
+	case ratingAverage = "Rating average"
+	case distance = "Distance"
+	case popularity = "Popularity"
+	case averageProductPrice = "Average product price"
+	case deliveryCosts = "Delivery cost"
+	case minCost = "Minimum cost"
+	
+	func rawValueString() -> String {
+		return self.rawValue
+	}
 }

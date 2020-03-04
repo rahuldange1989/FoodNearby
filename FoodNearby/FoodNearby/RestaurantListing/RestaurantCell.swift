@@ -10,6 +10,7 @@ import UIKit
 
 class RestaurantCell: UITableViewCell {
 
+	@IBOutlet weak var statusLabel: UILabel!
 	@IBOutlet weak var ratingView: RatingView!
 	@IBOutlet weak var minimumCostLabel: UILabel!
 	@IBOutlet weak var deliveryLabel: UILabel!
@@ -50,6 +51,22 @@ class RestaurantCell: UITableViewCell {
 		// -- set rating
 		if let rating = restaurant.sortingValues.ratingAverage {
 			self.ratingView.rating = rating
+		}
+		
+		// -- handle favourite
+		favouriteBtn.setImage(UIImage(systemName: (restaurant.isFavourite ?? false) ? "suit.heart.fill" : "suit.heart"), for: .normal)
+	
+		// -- handle status and status label color
+		self.statusLabel.text = restaurant.status.rawValue.capitalized
+		switch restaurant.status {
+			case .closed:
+				self.statusLabel.textColor = UIColor.systemRed
+			
+			case .orderAhead:
+				self.statusLabel.textColor = UIColor.systemOrange
+			
+			case .statusOpen:
+				self.statusLabel.textColor = UIColor.systemGreen
 		}
 	}
 }

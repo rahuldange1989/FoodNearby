@@ -31,14 +31,32 @@ class RestaurantListViewController: UIViewController {
 	}
 
 	// MARK: - Internal Methods -
+	func createSortActions(with actionArray: [SortOptions]) -> [UIAlertAction] {
+		var alertActions: [UIAlertAction] = []
+		for option in actionArray {
+			let action = UIAlertAction.init(title: option.rawValueString(), style: .default) { (action) in
+				// -- add sort action handler code
+				self.restaurantViewModel.sortRestaurants(with: action.title ?? "")
+			}
+			alertActions.append(action)
+		}
+		// -- add cancel action
+		let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+		alertActions.append(cancelAction)
+		return alertActions
+	}
 	
 	// MARK: - Event Handler Methods -
 	@IBAction func sortBtnClicked(_ sender: Any) {
 		let sortOptionsSheet = UIAlertController.init(title: "", message: "Choose sorting option", preferredStyle: .actionSheet)
 		
 		// -- add different sorting options
+		let actions = self.createSortActions(with: [.bestMatch, .newest, .ratingAverage, .distance, .popularity, .averageProductPrice, .deliveryCosts, .minCost])
+		for action in actions {
+			sortOptionsSheet.addAction(action)
+		}
 		
-		
+		// -- present action sheet
 		self.present(sortOptionsSheet, animated: true, completion: nil)
 	}
 }
