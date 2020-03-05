@@ -14,7 +14,6 @@
 		5F1C2495240D129200678725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C2494240D129200678725 /* Assets.xcassets */; };
 		5F1C2498240D129200678725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C2496240D129200678725 /* LaunchScreen.storyboard */; };
 		5F1C24A3240D129200678725 /* FoodNearbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24A2240D129200678725 /* FoodNearbyTests.swift */; };
-		5F1C24AE240D129200678725 /* FoodNearbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24AD240D129200678725 /* FoodNearbyUITests.swift */; };
 		5F1C24BD240D18CC00678725 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24BC240D18CC00678725 /* RestaurantModel.swift */; };
 		5F1C24BF240D19C700678725 /* RestaurantListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F1C24BE240D19C700678725 /* RestaurantListResponse.json */; };
 		5F1C24C1240D1A5500678725 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1C24C0240D1A5500678725 /* RestaurantViewModel.swift */; };
@@ -52,8 +51,6 @@
 		5F1C24A2240D129200678725 /* FoodNearbyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNearbyTests.swift; sourceTree = "<group>"; };
 		5F1C24A4240D129200678725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F1C24A9240D129200678725 /* FoodNearbyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodNearbyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F1C24AD240D129200678725 /* FoodNearbyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNearbyUITests.swift; sourceTree = "<group>"; };
-		5F1C24AF240D129200678725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F1C24BC240D18CC00678725 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		5F1C24BE240D19C700678725 /* RestaurantListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RestaurantListResponse.json; sourceTree = "<group>"; };
 		5F1C24C0240D1A5500678725 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 			children = (
 				5F1C248A240D128F00678725 /* FoodNearby */,
 				5F1C24A1240D129200678725 /* FoodNearbyTests */,
-				5F1C24AC240D129200678725 /* FoodNearbyUITests */,
 				5F1C2489240D128F00678725 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,15 +124,6 @@
 				5F1C24A4240D129200678725 /* Info.plist */,
 			);
 			path = FoodNearbyTests;
-			sourceTree = "<group>";
-		};
-		5F1C24AC240D129200678725 /* FoodNearbyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5F1C24AD240D129200678725 /* FoodNearbyUITests.swift */,
-				5F1C24AF240D129200678725 /* Info.plist */,
-			);
-			path = FoodNearbyUITests;
 			sourceTree = "<group>";
 		};
 		5F1C24BB240D132800678725 /* RestaurantListing */ = {
@@ -313,7 +300,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1C24AE240D129200678725 /* FoodNearbyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,13 @@ class Restaurant: Codable, Equatable {
     let sortingValues: SortingValues
 	var isFavourite: Bool?
 	
+	init(name: String, status: Status, sortingValues: SortingValues, isFavourite: Bool?) {
+		self.name = name
+		self.status = status
+		self.sortingValues = sortingValues
+		self.isFavourite = isFavourite
+	}
+	
 	static func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
 		return lhs.name == rhs.name
 	}
